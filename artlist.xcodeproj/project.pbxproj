@@ -13,6 +13,8 @@
 		C55D29691E4ECEAC0017448C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C55D29671E4ECEAC0017448C /* Main.storyboard */; };
 		C55D296B1E4ECEAC0017448C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C55D296A1E4ECEAC0017448C /* Assets.xcassets */; };
 		C55D296E1E4ECEAC0017448C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C55D296C1E4ECEAC0017448C /* LaunchScreen.storyboard */; };
+		C55D29771E4ECF870017448C /* ArticlesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D29761E4ECF870017448C /* ArticlesTVC.m */; };
+		C55D297F1E4F3C840017448C /* ArticlesXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D297E1E4F3C840017448C /* ArticlesXMLParser.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +28,10 @@
 		C55D296A1E4ECEAC0017448C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C55D296D1E4ECEAC0017448C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C55D296F1E4ECEAC0017448C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C55D29751E4ECF870017448C /* ArticlesTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticlesTVC.h; sourceTree = "<group>"; };
+		C55D29761E4ECF870017448C /* ArticlesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticlesTVC.m; sourceTree = "<group>"; };
+		C55D297D1E4F3C840017448C /* ArticlesXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticlesXMLParser.h; sourceTree = "<group>"; };
+		C55D297E1E4F3C840017448C /* ArticlesXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticlesXMLParser.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,9 +64,12 @@
 		C55D295D1E4ECEAC0017448C /* artlist */ = {
 			isa = PBXGroup;
 			children = (
+				C55D297C1E4F3C4D0017448C /* ArticlesXMLParser */,
 				C55D29641E4ECEAC0017448C /* ViewController.h */,
 				C55D29651E4ECEAC0017448C /* ViewController.m */,
 				C55D29671E4ECEAC0017448C /* Main.storyboard */,
+				C55D29751E4ECF870017448C /* ArticlesTVC.h */,
+				C55D29761E4ECF870017448C /* ArticlesTVC.m */,
 				C55D296A1E4ECEAC0017448C /* Assets.xcassets */,
 				C55D296C1E4ECEAC0017448C /* LaunchScreen.storyboard */,
 				C55D296F1E4ECEAC0017448C /* Info.plist */,
@@ -77,6 +86,15 @@
 				C55D295F1E4ECEAC0017448C /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		C55D297C1E4F3C4D0017448C /* ArticlesXMLParser */ = {
+			isa = PBXGroup;
+			children = (
+				C55D297D1E4F3C840017448C /* ArticlesXMLParser.h */,
+				C55D297E1E4F3C840017448C /* ArticlesXMLParser.m */,
+			);
+			name = ArticlesXMLParser;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,8 +169,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C55D29771E4ECF870017448C /* ArticlesTVC.m in Sources */,
 				C55D29661E4ECEAC0017448C /* ViewController.m in Sources */,
 				C55D29631E4ECEAC0017448C /* AppDelegate.m in Sources */,
+				C55D297F1E4F3C840017448C /* ArticlesXMLParser.m in Sources */,
 				C55D29601E4ECEAC0017448C /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
