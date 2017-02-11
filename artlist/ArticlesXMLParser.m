@@ -65,8 +65,4 @@
     [self.currentElementValue setString:@""];
 }
 
-- (void) parserDidEndDocument:(NSXMLParser *)parser {
-    NSLog(@"parserDidEndDocument");
-}
-
 @end

@@ -8,6 +8,7 @@
 
 #import "ArticlesTVC.h"
 #import "ArticlesXMLParser.h"
+#import "ArticleVC.h"
 
 @interface ArticlesTVC ()
 
@@ -20,13 +21,15 @@
 @synthesize articles = _articles;
 - (void)setArticles:(NSMutableArray *)articles {
     _articles = articles;
-    [self.tableView reloadData];
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.tableView reloadData];
+    });
 }
 
 - (NSMutableArray *)articles {
     if (!_articles)
         _articles = [[NSMutableArray alloc] init];
-        
     return _articles;
 }
 
@@ -76,6 +79,22 @@
     cell.textLabel.text = [article valueForKey:@"title"];
     cell.detailTextLabel.text = [article valueForKey:@"pubDate"];
     return cell;
+}
+
+
+#pragma mark - Segue to show article
+
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([sender isKindOfClass:[UITableViewCell class]]) {
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:sender];
+        if (indexPath) {
+            if ([segue.identifier isEqualToString:@"Show article"]) {
+                if ([segue.destinationViewController isKindOfClass: [ArticleVC class]]) {
+                    [(ArticleVC *)segue.destinationViewController setArticle:self.articles[indexPath.row]];
+                }
+            }
+        }
+    }
 }
 
 @end

@@ -15,6 +15,7 @@
 		C55D296E1E4ECEAC0017448C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C55D296C1E4ECEAC0017448C /* LaunchScreen.storyboard */; };
 		C55D29771E4ECF870017448C /* ArticlesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D29761E4ECF870017448C /* ArticlesTVC.m */; };
 		C55D297F1E4F3C840017448C /* ArticlesXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D297E1E4F3C840017448C /* ArticlesXMLParser.m */; };
+		C55D29851E4F9EA10017448C /* ArticleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D29841E4F9EA10017448C /* ArticleVC.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +33,8 @@
 		C55D29761E4ECF870017448C /* ArticlesTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticlesTVC.m; sourceTree = "<group>"; };
 		C55D297D1E4F3C840017448C /* ArticlesXMLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticlesXMLParser.h; sourceTree = "<group>"; };
 		C55D297E1E4F3C840017448C /* ArticlesXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticlesXMLParser.m; sourceTree = "<group>"; };
+		C55D29831E4F9EA10017448C /* ArticleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleVC.h; sourceTree = "<group>"; };
+		C55D29841E4F9EA10017448C /* ArticleVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleVC.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +70,8 @@
 				C55D297C1E4F3C4D0017448C /* ArticlesXMLParser */,
 				C55D29751E4ECF870017448C /* ArticlesTVC.h */,
 				C55D29761E4ECF870017448C /* ArticlesTVC.m */,
+				C55D29831E4F9EA10017448C /* ArticleVC.h */,
+				C55D29841E4F9EA10017448C /* ArticleVC.m */,
 				C55D29641E4ECEAC0017448C /* ViewController.h */,
 				C55D29651E4ECEAC0017448C /* ViewController.m */,
 				C55D29671E4ECEAC0017448C /* Main.storyboard */,
@@ -170,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C55D29771E4ECF870017448C /* ArticlesTVC.m in Sources */,
+				C55D29851E4F9EA10017448C /* ArticleVC.m in Sources */,
 				C55D29661E4ECEAC0017448C /* ViewController.m in Sources */,
 				C55D29631E4ECEAC0017448C /* AppDelegate.m in Sources */,
 				C55D297F1E4F3C840017448C /* ArticlesXMLParser.m in Sources */,
