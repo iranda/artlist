@@ -7,23 +7,62 @@
 //
 
 #import "ArticlesXMLParser.h"
+#import "ArticlesTVC.h"
+
+@interface ArticlesXMLParser()
+@property (nonatomic, strong) NSMutableDictionary *currentArticle;
+@property (nonatomic, strong) NSArray *managedProperties;
+
+@property (nonatomic, strong) NSMutableString *currentElementValue;
+@property (nonatomic, assign, getter=isNeedToSaveElement) BOOL saveElement;
+@end
 
 @implementation ArticlesXMLParser
 
-- (void) parserDidStartDocument:(NSXMLParser *)parser {
-    NSLog(@"parserDidStartDocument");
+- (NSMutableString *)currentElementValue {
+    if (!_currentElementValue)
+        _currentElementValue = [[NSMutableString alloc] init];
+    return _currentElementValue;
+}
+
+- (NSMutableArray *)articles {
+    if (!_articles)
+        _articles = [[NSMutableArray alloc] init];
+    return _articles;
+}
+
+- (NSArray *)managedProperties {
+    return @[ @"title",
+              @"pubDate" ];
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
-    NSLog(@"didStartElement --> %@", elementName);
+    
+    if( [elementName isEqualToString:@"item"]) {
+        self.currentArticle = [[NSMutableDictionary alloc] init];
+    }
+    else if ([self.managedProperties containsObject:elementName]) {
+        self.saveElement = YES;
+    }
 }
 
 -(void) parser:(NSXMLParser *)parser foundCharacters:(NSString *)string {
-    NSLog(@"foundCharacters --> %@", string);
+    if (self.isNeedToSaveElement)
+        [self.currentElementValue appendString:string];
 }
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
-    NSLog(@"didEndElement   --> %@", elementName);
+    
+    if ([elementName isEqualToString:@"item"]) {
+        [self.articles addObject:self.currentArticle];
+        self.currentArticle = nil;
+    }
+    else if (self.isNeedToSaveElement) {
+        [self.currentArticle setValue:[self.currentElementValue mutableCopy] forKey:elementName];
+    }
+    
+    self.saveElement = NO;
+    [self.currentElementValue setString:@""];
 }
 
 - (void) parserDidEndDocument:(NSXMLParser *)parser {

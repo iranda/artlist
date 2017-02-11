@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface ArticlesTVC : UITableViewController
-@property (nonatomic, strong) NSString *articles;
+@property (nonatomic, strong) NSMutableArray *articles;
 @end

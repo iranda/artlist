@@ -15,11 +15,19 @@
 
 @implementation ArticlesTVC
 
-#pragma mark - Setters
+#pragma mark - Articles
 
-- (void)setArticles:(NSString *)articles {
+@synthesize articles = _articles;
+- (void)setArticles:(NSMutableArray *)articles {
     _articles = articles;
     [self.tableView reloadData];
+}
+
+- (NSMutableArray *)articles {
+    if (!_articles)
+        _articles = [[NSMutableArray alloc] init];
+        
+    return _articles;
 }
 
 #pragma mark - TVC lifecycle
@@ -41,12 +49,8 @@
         [parser setDelegate:parserDelegate];
 
         if ([parser parse])
-            NSLog(@"Success");
-
+            self.articles = [parserDelegate.articles mutableCopy];
     }] resume];
-    
-    
-    self.articles = nil;
 }
 
 
@@ -57,13 +61,21 @@
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-#warning Incomplete implementation, return the number of sections
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-#warning Incomplete implementation, return the number of rows
-    return 0;
+    return [self.articles count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"Article Cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    
+    NSDictionary *article = self.articles[indexPath.row];
+    cell.textLabel.text = [article valueForKey:@"title"];
+    cell.detailTextLabel.text = [article valueForKey:@"pubDate"];
+    return cell;
 }
 
 @end

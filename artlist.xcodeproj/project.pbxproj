@@ -65,11 +65,11 @@
 			isa = PBXGroup;
 			children = (
 				C55D297C1E4F3C4D0017448C /* ArticlesXMLParser */,
+				C55D29751E4ECF870017448C /* ArticlesTVC.h */,
+				C55D29761E4ECF870017448C /* ArticlesTVC.m */,
 				C55D29641E4ECEAC0017448C /* ViewController.h */,
 				C55D29651E4ECEAC0017448C /* ViewController.m */,
 				C55D29671E4ECEAC0017448C /* Main.storyboard */,
-				C55D29751E4ECF870017448C /* ArticlesTVC.h */,
-				C55D29761E4ECF870017448C /* ArticlesTVC.m */,
 				C55D296A1E4ECEAC0017448C /* Assets.xcassets */,
 				C55D296C1E4ECEAC0017448C /* LaunchScreen.storyboard */,
 				C55D296F1E4ECEAC0017448C /* Info.plist */,
