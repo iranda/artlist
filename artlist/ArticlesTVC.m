@@ -48,11 +48,12 @@
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     [[session dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
-        ArticlesXMLParser *parserDelegate = [[ArticlesXMLParser alloc] init];
+        ArticlesXMLParser *parserDelegate = [[ArticlesXMLParser alloc] initWithArray: @[@"title", @"pubDate", @"description"]
+                                                                     elementStartsAt: @"item" ];
         [parser setDelegate:parserDelegate];
 
         if ([parser parse])
-            self.articles = [parserDelegate.articles mutableCopy];
+            self.articles = [parserDelegate.items mutableCopy];
     }] resume];
 }
 

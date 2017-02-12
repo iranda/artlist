@@ -9,7 +9,8 @@
 #import <Foundation/Foundation.h>
 
 @interface ArticlesXMLParser : NSObject <NSXMLParserDelegate>
-@property (nonatomic, strong) NSMutableArray *articles;
+@property (nonatomic, strong) NSMutableArray *items;
 
-- (NSMutableArray *)articles;
+- (NSMutableArray *)items;
+- (id) initWithArray: (NSArray *)arrayProperties elementStartsAt: (NSString *) start;
 @end

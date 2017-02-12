@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -57,7 +58,7 @@
             </objects>
             <point key="canvasLocation" x="846" y="0.0"/>
         </scene>
-        <!--ArticleVC-->
+        <!--Parse Macleans.ca-->
         <scene sceneID="itP-Td-NLr">
             <objects>
                 <viewController id="eo5-X1-tuT" customClass="ArticleVC" sceneMemberID="viewController">
@@ -68,13 +69,45 @@
                     <view key="view" contentMode="scaleToFill" id="aPA-lA-BlL">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VwW-2Q-9g5">
+                                <rect key="frame" x="16" y="72" width="288" height="26"/>
+                                <attributedString key="attributedText">
+                                    <fragment content="tmp">
+                                        <attributes>
+                                            <font key="NSFont" size="22" name="GillSans-Bold"/>
+                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                        </attributes>
+                                    </fragment>
+                                </attributedString>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHq-o2-hlW">
+                                <rect key="frame" x="16" y="100" width="288" height="448"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="VwW-2Q-9g5" firstAttribute="leading" secondItem="SHq-o2-hlW" secondAttribute="leading" id="8CM-1k-bs8"/>
+                            <constraint firstItem="SHq-o2-hlW" firstAttribute="top" secondItem="VwW-2Q-9g5" secondAttribute="bottom" constant="7" id="EhB-D8-fxE"/>
+                            <constraint firstItem="VwW-2Q-9g5" firstAttribute="trailing" secondItem="SHq-o2-hlW" secondAttribute="trailing" id="F2L-er-e2w"/>
+                            <constraint firstItem="VwW-2Q-9g5" firstAttribute="top" secondItem="xKf-R5-ObM" secondAttribute="bottom" constant="8" symbolic="YES" id="NuZ-Se-RZv"/>
+                            <constraint firstItem="VwW-2Q-9g5" firstAttribute="trailing" secondItem="aPA-lA-BlL" secondAttribute="trailingMargin" id="eBf-7I-8cb"/>
+                            <constraint firstItem="VwW-2Q-9g5" firstAttribute="leading" secondItem="aPA-lA-BlL" secondAttribute="leadingMargin" id="lLW-Vh-QX6"/>
+                        </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="QgS-El-7xg"/>
+                    <navigationItem key="navigationItem" title="Parse Macleans.ca" id="QgS-El-7xg"/>
+                    <connections>
+                        <outlet property="articleTitle" destination="VwW-2Q-9g5" id="HQl-RJ-bhO"/>
+                        <outlet property="atricleDescription" destination="SHq-o2-hlW" id="OAj-Kf-z1V"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K7W-EG-Lkr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1663" y="0.0"/>
+            <point key="canvasLocation" x="1661.25" y="0.0"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Vwy-tD-kLw">

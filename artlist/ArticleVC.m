@@ -9,6 +9,8 @@
 #import "ArticleVC.h"
 
 @interface ArticleVC ()
+@property (weak, nonatomic) IBOutlet UILabel *articleTitle;
+@property (weak, nonatomic) IBOutlet UILabel *atricleDescription;
 
 @end
 
@@ -20,8 +22,8 @@
 }
 
 - (void) updateUI {
-    self.title = [self.article valueForKey:@"title"];
-    //self.tmp.text = [self.article valueForKey:@"title"];
+    self.articleTitle.text = [self.article valueForKey:@"title"];
+    self.atricleDescription.text = [self.article valueForKey:@"description"];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
@@ -31,7 +33,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    [self updateUI];
 }
 
 - (void)didReceiveMemoryWarning {

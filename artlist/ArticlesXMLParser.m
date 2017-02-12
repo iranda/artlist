@@ -10,8 +10,9 @@
 #import "ArticlesTVC.h"
 
 @interface ArticlesXMLParser()
-@property (nonatomic, strong) NSMutableDictionary *currentArticle;
+@property (nonatomic, strong) NSMutableDictionary *currentItem;
 @property (nonatomic, strong) NSArray *managedProperties;
+@property (nonatomic, strong) NSString *startItem;
 
 @property (nonatomic, strong) NSMutableString *currentElementValue;
 @property (nonatomic, assign, getter=isNeedToSaveElement) BOOL saveElement;
@@ -19,27 +20,32 @@
 
 @implementation ArticlesXMLParser
 
+- (id) initWithArray: (NSArray *)arrayProperties elementStartsAt: (NSString *) start {
+    self = [super init];
+    
+    if (self) {
+        self.managedProperties = arrayProperties;
+        self.startItem = start;
+    }
+    return self;
+}
+
 - (NSMutableString *)currentElementValue {
     if (!_currentElementValue)
         _currentElementValue = [[NSMutableString alloc] init];
     return _currentElementValue;
 }
 
-- (NSMutableArray *)articles {
-    if (!_articles)
-        _articles = [[NSMutableArray alloc] init];
-    return _articles;
-}
-
-- (NSArray *)managedProperties {
-    return @[ @"title",
-              @"pubDate" ];
+- (NSMutableArray *)items {
+    if (!_items)
+        _items = [[NSMutableArray alloc] init];
+    return _items;
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
     
-    if( [elementName isEqualToString:@"item"]) {
-        self.currentArticle = [[NSMutableDictionary alloc] init];
+    if( [elementName isEqualToString:self.startItem]) {
+        self.currentItem = [[NSMutableDictionary alloc] init];
     }
     else if ([self.managedProperties containsObject:elementName]) {
         self.saveElement = YES;
@@ -53,12 +59,13 @@
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
     
-    if ([elementName isEqualToString:@"item"]) {
-        [self.articles addObject:self.currentArticle];
-        self.currentArticle = nil;
+    if ([elementName isEqualToString:self.startItem]) {
+        [self.items addObject:self.currentItem];
+        self.currentItem = nil;
     }
     else if (self.isNeedToSaveElement) {
-        [self.currentArticle setValue:[self.currentElementValue mutableCopy] forKey:elementName];
+        [self.currentItem setValue:[self.currentElementValue mutableCopy] forKey:elementName];
+        //NSLog(@"%@", self.currentElementValue);
     }
     
     self.saveElement = NO;
