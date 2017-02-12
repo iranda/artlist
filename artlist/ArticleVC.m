@@ -11,33 +11,20 @@
 
 @interface ArticleVC ()
 @property (weak, nonatomic) IBOutlet UILabel *articleTitle;
-@property (weak, nonatomic) IBOutlet UILabel *atricleDescription;
+@property (weak, nonatomic) IBOutlet UIWebView *articleBody;
 
 @end
 
 @implementation ArticleVC
 
-- (void) setArticle:(NSDictionary *)article {
-    _article = article;
-    //[self updateUI];
-}
-
-- (NSString *) getArticleDescription {
-    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:[[self.article valueForKey:@"description"]
-                                                             dataUsingEncoding:NSUTF8StringEncoding]];
-    ArticlesXMLParser *parserDelegate = [[ArticlesXMLParser alloc] initWithArray: @[@"p"]
-                                                                 elementStartsAt: @"p" ];
-    [parser setDelegate:parserDelegate];
-    [parser parse];
-    if ([parserDelegate.items count])
-        return [parserDelegate.items[0] valueForKey:@"p"];
-    
-    return nil;
+- (void) getBody {
+    [self.articleBody loadHTMLString:[self.article valueForKey:@"content:encoded"]
+                             baseURL: [[NSBundle mainBundle] bundleURL]];
 }
 
 - (void) updateUI {
     self.articleTitle.text = [self.article valueForKey:@"title"];
-    self.atricleDescription.text = [self getArticleDescription];
+    [self getBody];
 }
 
 - (void) viewWillAppear:(BOOL)animated {

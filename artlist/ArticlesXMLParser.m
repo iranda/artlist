@@ -65,7 +65,6 @@
         [self.items addObject:self.currentItem];
         self.currentItem = nil;
     }
-    
     self.saveElement = NO;
     [self.currentElementValue setString:@""];
 }

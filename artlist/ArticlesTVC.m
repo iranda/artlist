@@ -37,6 +37,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.tableView setEstimatedRowHeight:85.0];
     [self fetchArticles];
 }
 
@@ -48,7 +49,7 @@
     NSURLSession *session = [NSURLSession sessionWithConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
     [[session dataTaskWithRequest:req completionHandler:^(NSData *data, NSURLResponse *response, NSError *error) {
         NSXMLParser *parser = [[NSXMLParser alloc] initWithData:data];
-        ArticlesXMLParser *parserDelegate = [[ArticlesXMLParser alloc] initWithArray: @[@"title", @"pubDate", @"description"]
+        ArticlesXMLParser *parserDelegate = [[ArticlesXMLParser alloc] initWithArray: @[@"title", @"pubDate", @"description", @"content:encoded"]
                                                                      elementStartsAt: @"item" ];
         [parser setDelegate:parserDelegate];
 
@@ -82,6 +83,10 @@
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewAutomaticDimension;
+}
 
 #pragma mark - Segue to show article
 

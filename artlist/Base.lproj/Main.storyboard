@@ -14,27 +14,33 @@
         <scene sceneID="noM-cM-RV4">
             <objects>
                 <tableViewController id="b4y-Cb-gk2" customClass="ArticlesTVC" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="9gW-uY-zhP">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="58" sectionHeaderHeight="28" sectionFooterHeight="28" id="9gW-uY-zhP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="Article Cell" textLabel="f4g-kF-Hvj" detailTextLabel="i7t-rK-MbN" style="IBUITableViewCellStyleSubtitle" id="pJ8-yl-hy0">
-                                <rect key="frame" x="0.0" y="28" width="320" height="44"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="0.0" reuseIdentifier="Article Cell" textLabel="f4g-kF-Hvj" detailTextLabel="i7t-rK-MbN" rowHeight="58" style="IBUITableViewCellStyleSubtitle" id="pJ8-yl-hy0">
+                                <rect key="frame" x="0.0" y="28" width="320" height="58"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pJ8-yl-hy0" id="cco-9k-baX">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="57"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="clip" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f4g-kF-Hvj">
-                                            <rect key="frame" x="15" y="4" width="34" height="21"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" usesAttributedText="YES" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f4g-kF-Hvj">
+                                            <rect key="frame" x="15" y="12" width="32" height="20"/>
                                             <autoresizingMask key="autoresizingMask"/>
-                                            <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
-                                            <nil key="textColor"/>
+                                            <attributedString key="attributedText">
+                                                <fragment content="Title">
+                                                    <attributes>
+                                                        <font key="NSFont" size="17" name="GillSans"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="i7t-rK-MbN">
-                                            <rect key="frame" x="15" y="25" width="33" height="14"/>
+                                            <rect key="frame" x="15" y="32" width="33" height="14"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="Posted">
@@ -49,7 +55,7 @@
                                     </subviews>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="eo5-X1-tuT" kind="push" identifier="Show article" id="nlG-cJ-B79"/>
+                                    <segue destination="eo5-X1-tuT" kind="show" identifier="Show article" id="nlG-cJ-B79"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -62,7 +68,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ehY-Di-gsU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="846" y="0.0"/>
+            <point key="canvasLocation" x="845.625" y="0.0"/>
         </scene>
         <!--Parse Macleans.ca-->
         <scene sceneID="itP-Td-NLr">
@@ -88,33 +94,26 @@
                                 </attributedString>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SHq-o2-hlW">
-                                <rect key="frame" x="16" y="100" width="288" height="26"/>
-                                <attributedString key="attributedText">
-                                    <fragment content="description">
-                                        <attributes>
-                                            <font key="NSFont" size="16" name="GillSans"/>
-                                            <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                        </attributes>
-                                    </fragment>
-                                </attributedString>
-                                <nil key="highlightedColor"/>
-                            </label>
+                            <webView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="i3E-yX-ssS">
+                                <rect key="frame" x="16" y="115" width="288" height="433"/>
+                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </webView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="VwW-2Q-9g5" firstAttribute="leading" secondItem="SHq-o2-hlW" secondAttribute="leading" id="8CM-1k-bs8"/>
-                            <constraint firstItem="SHq-o2-hlW" firstAttribute="top" secondItem="VwW-2Q-9g5" secondAttribute="bottom" constant="7" id="EhB-D8-fxE"/>
-                            <constraint firstItem="VwW-2Q-9g5" firstAttribute="trailing" secondItem="SHq-o2-hlW" secondAttribute="trailing" id="F2L-er-e2w"/>
-                            <constraint firstItem="VwW-2Q-9g5" firstAttribute="top" secondItem="xKf-R5-ObM" secondAttribute="bottom" constant="8" symbolic="YES" id="NuZ-Se-RZv"/>
-                            <constraint firstItem="VwW-2Q-9g5" firstAttribute="trailing" secondItem="aPA-lA-BlL" secondAttribute="trailingMargin" id="eBf-7I-8cb"/>
-                            <constraint firstItem="VwW-2Q-9g5" firstAttribute="leading" secondItem="aPA-lA-BlL" secondAttribute="leadingMargin" id="lLW-Vh-QX6"/>
+                            <constraint firstItem="i3E-yX-ssS" firstAttribute="top" secondItem="VwW-2Q-9g5" secondAttribute="bottom" constant="17" id="03A-uI-Q37"/>
+                            <constraint firstItem="VwW-2Q-9g5" firstAttribute="top" secondItem="xKf-R5-ObM" secondAttribute="bottom" constant="8" symbolic="YES" id="CMo-jV-O6l"/>
+                            <constraint firstItem="VwW-2Q-9g5" firstAttribute="trailing" secondItem="aPA-lA-BlL" secondAttribute="trailingMargin" id="E58-1b-mh8"/>
+                            <constraint firstItem="VwW-2Q-9g5" firstAttribute="leading" secondItem="aPA-lA-BlL" secondAttribute="leadingMargin" id="FYA-hK-doS"/>
+                            <constraint firstItem="i3E-yX-ssS" firstAttribute="leading" secondItem="VwW-2Q-9g5" secondAttribute="leading" id="dwo-sZ-YeD"/>
+                            <constraint firstAttribute="bottom" secondItem="i3E-yX-ssS" secondAttribute="bottom" constant="20" symbolic="YES" id="gw1-2b-STb"/>
+                            <constraint firstItem="i3E-yX-ssS" firstAttribute="trailing" secondItem="VwW-2Q-9g5" secondAttribute="trailing" id="jCu-rt-cs4"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Parse Macleans.ca" id="QgS-El-7xg"/>
                     <connections>
+                        <outlet property="articleBody" destination="i3E-yX-ssS" id="TLO-oJ-uF6"/>
                         <outlet property="articleTitle" destination="VwW-2Q-9g5" id="HQl-RJ-bhO"/>
-                        <outlet property="atricleDescription" destination="SHq-o2-hlW" id="OAj-Kf-z1V"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K7W-EG-Lkr" userLabel="First Responder" sceneMemberID="firstResponder"/>
