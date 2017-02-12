@@ -7,6 +7,7 @@
 //
 
 #import "ArticleVC.h"
+#import "ArticlesXMLParser.h"
 
 @interface ArticleVC ()
 @property (weak, nonatomic) IBOutlet UILabel *articleTitle;
@@ -18,17 +19,29 @@
 
 - (void) setArticle:(NSDictionary *)article {
     _article = article;
-    [self updateUI];
+    //[self updateUI];
+}
+
+- (NSString *) getArticleDescription {
+    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:[[self.article valueForKey:@"description"]
+                                                             dataUsingEncoding:NSUTF8StringEncoding]];
+    ArticlesXMLParser *parserDelegate = [[ArticlesXMLParser alloc] initWithArray: @[@"p"]
+                                                                 elementStartsAt: @"p" ];
+    [parser setDelegate:parserDelegate];
+    [parser parse];
+    if ([parserDelegate.items count])
+        return [parserDelegate.items[0] valueForKey:@"p"];
+    
+    return nil;
 }
 
 - (void) updateUI {
     self.articleTitle.text = [self.article valueForKey:@"title"];
-    self.atricleDescription.text = [self.article valueForKey:@"description"];
+    self.atricleDescription.text = [self getArticleDescription];
 }
 
 - (void) viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
-    if (self.view.window) [self updateUI];
 }
 
 - (void)viewDidLoad {

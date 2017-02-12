@@ -43,11 +43,10 @@
 }
 
 - (void)parser:(NSXMLParser *)parser didStartElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName attributes:(NSDictionary *)attributeDict {
-    
     if( [elementName isEqualToString:self.startItem]) {
         self.currentItem = [[NSMutableDictionary alloc] init];
     }
-    else if ([self.managedProperties containsObject:elementName]) {
+    if ([self.managedProperties containsObject:elementName]) {
         self.saveElement = YES;
     }
 }
@@ -59,13 +58,12 @@
 
 - (void)parser:(NSXMLParser *)parser didEndElement:(NSString *)elementName namespaceURI:(NSString *)namespaceURI qualifiedName:(NSString *)qName {
     
+    if (self.isNeedToSaveElement) {
+        [self.currentItem setValue:[self.currentElementValue mutableCopy] forKey:elementName];
+    }
     if ([elementName isEqualToString:self.startItem]) {
         [self.items addObject:self.currentItem];
         self.currentItem = nil;
-    }
-    else if (self.isNeedToSaveElement) {
-        [self.currentItem setValue:[self.currentElementValue mutableCopy] forKey:elementName];
-        //NSLog(@"%@", self.currentElementValue);
     }
     
     self.saveElement = NO;
