@@ -9,6 +9,7 @@
 #import "ArticlesTVC.h"
 #import "ArticlesXMLParser.h"
 #import "ArticleVC.h"
+#import "ArticleCell.h"
 
 @interface ArticlesTVC ()
 
@@ -73,13 +74,26 @@
     return [self.articles count];
 }
 
+- (NSString *)getDescFromSrc: (NSString *)src {
+    NSXMLParser *parser = [[NSXMLParser alloc] initWithData:[src dataUsingEncoding:NSUTF8StringEncoding]];
+    ArticlesXMLParser *parserDelegate = [[ArticlesXMLParser alloc] initWithArray: @[@"p"]
+                                                                 elementStartsAt: @"p" ];
+    [parser setDelegate:parserDelegate];
+    [parser parse];
+    if ([parserDelegate.items count])
+        return [parserDelegate.items[0] valueForKey:@"p"];
+    
+    return nil;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *CellIdentifier = @"Article Cell";
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
+    ArticleCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     NSDictionary *article = self.articles[indexPath.row];
-    cell.textLabel.text = [article valueForKey:@"title"];
-    cell.detailTextLabel.text = [article valueForKey:@"pubDate"];
+    cell.title.text = [article valueForKey:@"title"];
+    cell.data.text = [article valueForKey:@"pubDate"];
+    cell.desc.text = [self getDescFromSrc:[article valueForKey:@"description"]];
     return cell;
 }
 

@@ -16,6 +16,7 @@
 		C55D29771E4ECF870017448C /* ArticlesTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D29761E4ECF870017448C /* ArticlesTVC.m */; };
 		C55D297F1E4F3C840017448C /* ArticlesXMLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D297E1E4F3C840017448C /* ArticlesXMLParser.m */; };
 		C55D29851E4F9EA10017448C /* ArticleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D29841E4F9EA10017448C /* ArticleVC.m */; };
+		C55D298E1E50B6220017448C /* ArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = C55D298D1E50B6220017448C /* ArticleCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,8 @@
 		C55D297E1E4F3C840017448C /* ArticlesXMLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticlesXMLParser.m; sourceTree = "<group>"; };
 		C55D29831E4F9EA10017448C /* ArticleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleVC.h; sourceTree = "<group>"; };
 		C55D29841E4F9EA10017448C /* ArticleVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleVC.m; sourceTree = "<group>"; };
+		C55D298C1E50B6220017448C /* ArticleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ArticleCell.h; sourceTree = "<group>"; };
+		C55D298D1E50B6220017448C /* ArticleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ArticleCell.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +71,8 @@
 			isa = PBXGroup;
 			children = (
 				C55D297C1E4F3C4D0017448C /* ArticlesXMLParser */,
+				C55D298C1E50B6220017448C /* ArticleCell.h */,
+				C55D298D1E50B6220017448C /* ArticleCell.m */,
 				C55D29751E4ECF870017448C /* ArticlesTVC.h */,
 				C55D29761E4ECF870017448C /* ArticlesTVC.m */,
 				C55D29831E4F9EA10017448C /* ArticleVC.h */,
@@ -180,6 +185,7 @@
 				C55D29631E4ECEAC0017448C /* AppDelegate.m in Sources */,
 				C55D297F1E4F3C840017448C /* ArticlesXMLParser.m in Sources */,
 				C55D29601E4ECEAC0017448C /* main.m in Sources */,
+				C55D298E1E50B6220017448C /* ArticleCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

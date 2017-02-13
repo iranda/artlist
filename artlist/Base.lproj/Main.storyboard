@@ -14,34 +14,20 @@
         <scene sceneID="noM-cM-RV4">
             <objects>
                 <tableViewController id="b4y-Cb-gk2" customClass="ArticlesTVC" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="58" sectionHeaderHeight="28" sectionFooterHeight="28" id="9gW-uY-zhP">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="120" sectionHeaderHeight="28" sectionFooterHeight="28" id="9gW-uY-zhP">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="0.0" reuseIdentifier="Article Cell" textLabel="f4g-kF-Hvj" detailTextLabel="i7t-rK-MbN" rowHeight="58" style="IBUITableViewCellStyleSubtitle" id="pJ8-yl-hy0">
-                                <rect key="frame" x="0.0" y="28" width="320" height="58"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="0.0" reuseIdentifier="Article Cell" rowHeight="120" id="pJ8-yl-hy0" customClass="ArticleCell">
+                                <rect key="frame" x="0.0" y="28" width="320" height="120"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="pJ8-yl-hy0" id="cco-9k-baX">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="57"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="119"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" usesAttributedText="YES" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f4g-kF-Hvj">
-                                            <rect key="frame" x="15" y="12" width="32" height="20"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <attributedString key="attributedText">
-                                                <fragment content="Title">
-                                                    <attributes>
-                                                        <font key="NSFont" size="17" name="GillSans"/>
-                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="i7t-rK-MbN">
-                                            <rect key="frame" x="15" y="32" width="33" height="14"/>
-                                            <autoresizingMask key="autoresizingMask"/>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" verticalHuggingPriority="252" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vds-Rk-1Vp">
+                                            <rect key="frame" x="8" y="89.5" width="271" height="14"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="Posted">
                                                     <attributes>
@@ -52,9 +38,49 @@
                                             </attributedString>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="752" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F1j-s5-Dn8">
+                                            <rect key="frame" x="8" y="70.5" width="271" height="14"/>
+                                            <attributedString key="attributedText">
+                                                <fragment content="Posted">
+                                                    <attributes>
+                                                        <color key="NSColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
+                                                        <font key="NSFont" size="12" name="GillSans"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" usesAttributedText="YES" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oOX-qQ-yhB">
+                                            <rect key="frame" x="8" y="16" width="271" height="49.5"/>
+                                            <attributedString key="attributedText">
+                                                <fragment content="Title">
+                                                    <attributes>
+                                                        <font key="NSFont" size="17" name="GillSans"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                    </attributes>
+                                                </fragment>
+                                            </attributedString>
+                                            <nil key="highlightedColor"/>
+                                        </label>
                                     </subviews>
+                                    <constraints>
+                                        <constraint firstItem="oOX-qQ-yhB" firstAttribute="trailing" secondItem="F1j-s5-Dn8" secondAttribute="trailing" id="EqH-rd-Clu"/>
+                                        <constraint firstItem="oOX-qQ-yhB" firstAttribute="top" secondItem="cco-9k-baX" secondAttribute="topMargin" constant="8" id="GHz-ET-pST"/>
+                                        <constraint firstItem="oOX-qQ-yhB" firstAttribute="trailing" secondItem="cco-9k-baX" secondAttribute="trailingMargin" id="JsX-0z-Y1H"/>
+                                        <constraint firstItem="oOX-qQ-yhB" firstAttribute="leading" secondItem="cco-9k-baX" secondAttribute="leadingMargin" id="SGv-n9-G86"/>
+                                        <constraint firstItem="F1j-s5-Dn8" firstAttribute="top" secondItem="oOX-qQ-yhB" secondAttribute="bottom" constant="5" id="TCo-Zi-Ggz"/>
+                                        <constraint firstItem="oOX-qQ-yhB" firstAttribute="leading" secondItem="F1j-s5-Dn8" secondAttribute="leading" id="aXh-vg-Eew"/>
+                                        <constraint firstItem="F1j-s5-Dn8" firstAttribute="top" secondItem="oOX-qQ-yhB" secondAttribute="bottom" constant="5" id="b03-CC-wyi"/>
+                                        <constraint firstItem="F1j-s5-Dn8" firstAttribute="trailing" secondItem="Vds-Rk-1Vp" secondAttribute="trailing" id="ijP-WN-dnu"/>
+                                        <constraint firstItem="F1j-s5-Dn8" firstAttribute="leading" secondItem="Vds-Rk-1Vp" secondAttribute="leading" id="vCX-Td-NTd"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Vds-Rk-1Vp" secondAttribute="bottom" constant="8" id="wqr-K2-M0Q"/>
+                                        <constraint firstItem="Vds-Rk-1Vp" firstAttribute="top" secondItem="F1j-s5-Dn8" secondAttribute="bottom" constant="5" id="xJi-0S-0t8"/>
+                                    </constraints>
                                 </tableViewCellContentView>
                                 <connections>
+                                    <outlet property="data" destination="F1j-s5-Dn8" id="M2S-Xx-Gxo"/>
+                                    <outlet property="desc" destination="Vds-Rk-1Vp" id="RqJ-U1-Jtk"/>
+                                    <outlet property="title" destination="oOX-qQ-yhB" id="IjZ-6r-wrS"/>
                                     <segue destination="eo5-X1-tuT" kind="show" identifier="Show article" id="nlG-cJ-B79"/>
                                 </connections>
                             </tableViewCell>
