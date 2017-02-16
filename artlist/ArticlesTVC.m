@@ -12,7 +12,7 @@
 #import "ArticleCell.h"
 
 @interface ArticlesTVC ()
-
+@property (strong, nonatomic) UIActivityIndicatorView *spinnerAIV;
 @end
 
 @implementation ArticlesTVC
@@ -34,11 +34,30 @@
     return _articles;
 }
 
+#pragma mark - Spinner
+
+- (void) activateSpinner {
+    self.spinnerAIV = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    self.spinnerAIV.center = CGPointMake(160, 240);
+    self.spinnerAIV.hidesWhenStopped = YES;
+    [self.view addSubview:self.spinnerAIV];
+    [self.spinnerAIV startAnimating];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+}
+
+- (void) stopSpinner {
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [self.spinnerAIV stopAnimating];
+        self.tableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    });
+}
+
 #pragma mark - TVC lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.tableView setEstimatedRowHeight:85.0];
+    [self activateSpinner];
     [self fetchArticles];
 }
 
@@ -54,8 +73,10 @@
                                                                      elementStartsAt: @"item" ];
         [parser setDelegate:parserDelegate];
 
-        if ([parser parse])
+        if ([parser parse]) {
             self.articles = [parserDelegate.items mutableCopy];
+            [self stopSpinner];
+        }
     }] resume];
 }
 

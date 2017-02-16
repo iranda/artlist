@@ -33,6 +33,7 @@
                                                     <attributes>
                                                         <color key="NSColor" cocoaTouchSystemColor="scrollViewTexturedBackgroundColor"/>
                                                         <font key="NSFont" size="12" name="GillSans"/>
+                                                        <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                     </attributes>
                                                 </fragment>
                                             </attributedString>
